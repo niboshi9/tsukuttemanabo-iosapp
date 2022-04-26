@@ -48,10 +48,8 @@ class ViewController: UIViewController {
         setUpLabel("退院者数", size: size, centerX: rightX, y: 220, font: labelFont, color: color, contentView)
         
         
-        
-        
         let height = view.frame.size.height / 2
-        setUpButton("健康管理", size: size, y: height + 190, color: colors.blue, parentView: view)
+        setUpButton("健康管理", size: size, y: height + 190, color: colors.blue, parentView: view).addTarget(self, action: #selector(goHealthCheck), for: .touchDown)
         setUpButton("県別状況", size: size, y: height + 240, color: colors.blue, parentView: view)
         setUpImageButton("text.bubble", x: view.frame.size.width - 50).addTarget(self, action: #selector(chatAction), for: .touchDown)
         setUpImageButton("arrow.clockwise", x: 20).addTarget(self, action: #selector(reloadAction), for: .touchDown)
@@ -66,7 +64,55 @@ class ViewController: UIViewController {
             imageView.frame = CGRect(x: self.view.frame.size.width - 100, y: -65, width: 50, height: 50)
             imageView.transform = CGAffineTransform(rotationAngle: -90)
         }, completion: nil)
+            
+        setUpAPI(parentView: contentView)
     }
+    
+    func setUpAPI(parentView: UIView) {
+        let pcr = UILabel()
+        let positive = UILabel()
+        let hospitalize = UILabel()
+        let severe = UILabel()
+        let death = UILabel()
+        let discharge = UILabel()
+        
+        let size = CGSize(width: 200, height: 40)
+        let leftX = view.frame.size.width * 0.38
+        let rightX = view.frame.size.width * 0.85
+        let font = UIFont.systemFont(ofSize: 28, weight: .heavy)
+        let color = colors.blue
+        
+        setUpAPILabel(pcr, size: size, centerX: leftX, y: 60, font: font, color: color, parentView)
+        setUpAPILabel(positive, size: size, centerX: rightX, y: 60, font: font, color: color, parentView)
+        setUpAPILabel(hospitalize, size: size, centerX: leftX, y: 160, font: font, color: color, parentView)
+        setUpAPILabel(severe, size: size, centerX: rightX, y: 160, font: font, color: color, parentView)
+        setUpAPILabel(death, size: size, centerX: leftX, y: 260, font: font, color: color, parentView)
+        setUpAPILabel(discharge, size: size, centerX: rightX, y: 260, font: font, color: color, parentView)
+        
+        
+        CovidAPI.getToal(completion: {(result : CovidInfo.Total) -> Void in
+            DispatchQueue.main.async {
+                pcr.text = "\(result.pcr)"
+                positive.text = "\(result.positive)"
+                hospitalize.text = "\(result.hospitalize)"
+                severe.text = "\(result.severe)"
+                death.text = "\(result.death)"
+                discharge.text = "\(result.discharge)"
+            }
+        })
+    }
+    
+    
+    
+    func setUpAPILabel(_ label: UILabel, size: CGSize, centerX: CGFloat, y: CGFloat, font: UIFont, color: UIColor, _ parentView: UIView) {
+        label.frame.size = size
+        label.center.x = centerX
+        label.frame.origin.y = y
+        label.font = font
+        label.textColor = color
+        parentView.addSubview(label)
+    }
+    
     func setUpImageButton(_ name: String, x:CGFloat) -> UIButton {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: name), for: .normal)
@@ -76,15 +122,23 @@ class ViewController: UIViewController {
         view.addSubview(button)
         return button
     }
-    @objc func chatAction() {
-        print("タップchat")
-    }
+    
     @objc func reloadAction() {
         print("タップ")
         loadView()
         viewDidLoad()
     }
-    func setUpButton(_ title: String, size: CGSize, y: CGFloat, color: UIColor, parentView: UIView) {
+    
+    @objc func chatAction() {
+        print("タップchat")
+    }
+    
+    @objc func goHealthCheck() {
+        performSegue(withIdentifier: "goHealthCheck", sender: nil)
+    }
+
+    
+    func setUpButton(_ title: String, size: CGSize, y: CGFloat, color: UIColor, parentView: UIView) -> UIButton {
         let button = UIButton(type: .system)
         button.setTitle(title, for: .normal)
         button.frame.size = size
@@ -94,6 +148,7 @@ class ViewController: UIViewController {
         button.frame.origin.y = y
         button.setTitleColor(color, for: .normal)
         parentView.addSubview(button)
+        return button
     }
     
     func setUpLabel(_ text: String, size: CGSize, centerX: CGFloat, y: CGFloat, font: UIFont, color: UIColor, _ parentView: UIView) {
@@ -115,9 +170,5 @@ class ViewController: UIViewController {
         gradientLayer.endPoint = CGPoint.init(x: 1, y: 1)
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
-    
-
-
-
 }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6234B1C28517460503949B8A /* Pods_tsukuttemanabo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21E215F8C670DF0B98407C5 /* Pods_tsukuttemanabo.framework */; };
+		BA6C9F5D2816FFA9004A75F2 /* HealthCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6C9F5C2816FFA9004A75F2 /* HealthCheckViewController.swift */; };
 		D09ED998281178A00052ABEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09ED997281178A00052ABEA /* AppDelegate.swift */; };
 		D09ED99A281178A00052ABEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09ED999281178A00052ABEA /* SceneDelegate.swift */; };
 		D09ED99C281178A00052ABEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09ED99B281178A00052ABEA /* ViewController.swift */; };
@@ -19,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3589FB77420FE0CCB01C199D /* Pods-tsukuttemanabo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsukuttemanabo.debug.xcconfig"; path = "Target Support Files/Pods-tsukuttemanabo/Pods-tsukuttemanabo.debug.xcconfig"; sourceTree = "<group>"; };
+		4DF07998234F59C1EBC1CA56 /* Pods-tsukuttemanabo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsukuttemanabo.release.xcconfig"; path = "Target Support Files/Pods-tsukuttemanabo/Pods-tsukuttemanabo.release.xcconfig"; sourceTree = "<group>"; };
+		B21E215F8C670DF0B98407C5 /* Pods_tsukuttemanabo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tsukuttemanabo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA6C9F5C2816FFA9004A75F2 /* HealthCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCheckViewController.swift; sourceTree = "<group>"; };
 		D09ED994281178A00052ABEA /* tsukuttemanabo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tsukuttemanabo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09ED997281178A00052ABEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D09ED999281178A00052ABEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,18 +43,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6234B1C28517460503949B8A /* Pods_tsukuttemanabo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09848311DB5BA5D9C034E921 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3589FB77420FE0CCB01C199D /* Pods-tsukuttemanabo.debug.xcconfig */,
+				4DF07998234F59C1EBC1CA56 /* Pods-tsukuttemanabo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		0CD8395824391C08504C8B37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B21E215F8C670DF0B98407C5 /* Pods_tsukuttemanabo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D09ED98B281178A00052ABEA = {
 			isa = PBXGroup;
 			children = (
 				D09ED9AB2811791B0052ABEA /* Colors.swift */,
 				D09ED996281178A00052ABEA /* tsukuttemanabo */,
 				D09ED995281178A00052ABEA /* Products */,
+				09848311DB5BA5D9C034E921 /* Pods */,
+				0CD8395824391C08504C8B37 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,6 +92,7 @@
 				D09ED997281178A00052ABEA /* AppDelegate.swift */,
 				D09ED999281178A00052ABEA /* SceneDelegate.swift */,
 				D09ED99B281178A00052ABEA /* ViewController.swift */,
+				BA6C9F5C2816FFA9004A75F2 /* HealthCheckViewController.swift */,
 				D09ED9AD281574770052ABEA /* Entity.swift */,
 				D09ED9AF281575480052ABEA /* API.swift */,
 				D09ED99D281178A00052ABEA /* Main.storyboard */,
@@ -83,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D09ED9A8281178A80052ABEA /* Build configuration list for PBXNativeTarget "tsukuttemanabo" */;
 			buildPhases = (
+				33076A120E39D0B947121A4A /* [CP] Check Pods Manifest.lock */,
 				D09ED990281178A00052ABEA /* Sources */,
 				D09ED991281178A00052ABEA /* Frameworks */,
 				D09ED992281178A00052ABEA /* Resources */,
+				74E4EB3E3F3664B03B5DC5DE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -142,6 +171,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		33076A120E39D0B947121A4A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-tsukuttemanabo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74E4EB3E3F3664B03B5DC5DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tsukuttemanabo/Pods-tsukuttemanabo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tsukuttemanabo/Pods-tsukuttemanabo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tsukuttemanabo/Pods-tsukuttemanabo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D09ED990281178A00052ABEA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -149,6 +220,7 @@
 			files = (
 				D09ED99C281178A00052ABEA /* ViewController.swift in Sources */,
 				D09ED9AE281574770052ABEA /* Entity.swift in Sources */,
+				BA6C9F5D2816FFA9004A75F2 /* HealthCheckViewController.swift in Sources */,
 				D09ED9AC2811791B0052ABEA /* Colors.swift in Sources */,
 				D09ED998281178A00052ABEA /* AppDelegate.swift in Sources */,
 				D09ED9B0281575480052ABEA /* API.swift in Sources */,
@@ -294,6 +366,7 @@
 		};
 		D09ED9A9281178A80052ABEA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3589FB77420FE0CCB01C199D /* Pods-tsukuttemanabo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -322,6 +395,7 @@
 		};
 		D09ED9AA281178A80052ABEA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DF07998234F59C1EBC1CA56 /* Pods-tsukuttemanabo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

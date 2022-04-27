@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         
         let height = view.frame.size.height / 2
         setUpButton("健康管理", size: size, y: height + 190, color: colors.blue, parentView: view).addTarget(self, action: #selector(goHealthCheck), for: .touchDown)
-        setUpButton("県別状況", size: size, y: height + 240, color: colors.blue, parentView: view)
+        setUpButton("県別状況", size: size, y: height + 240, color: colors.blue, parentView: view).addTarget(self, action: #selector(goChart), for: .touchDown)
         setUpImageButton("text.bubble", x: view.frame.size.width - 50).addTarget(self, action: #selector(chatAction), for: .touchDown)
         setUpImageButton("arrow.clockwise", x: 20).addTarget(self, action: #selector(reloadAction), for: .touchDown)
         
@@ -136,6 +136,12 @@ class ViewController: UIViewController {
     @objc func goHealthCheck() {
         performSegue(withIdentifier: "goHealthCheck", sender: nil)
     }
+    
+    @objc func goChart() {
+        performSegue(withIdentifier: "goChart", sender: nil)
+    }
+    
+    
 
     
     func setUpButton(_ title: String, size: CGSize, y: CGFloat, color: UIColor, parentView: UIView) -> UIButton {

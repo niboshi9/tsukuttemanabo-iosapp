@@ -18,6 +18,7 @@
 		D09ED9AC2811791B0052ABEA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09ED9AB2811791B0052ABEA /* Colors.swift */; };
 		D09ED9AE281574770052ABEA /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09ED9AD281574770052ABEA /* Entity.swift */; };
 		D09ED9B0281575480052ABEA /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09ED9AF281575480052ABEA /* API.swift */; };
+		D09ED9B228196C4B0052ABEA /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09ED9B128196C4B0052ABEA /* ChartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		D09ED9AB2811791B0052ABEA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		D09ED9AD281574770052ABEA /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		D09ED9AF281575480052ABEA /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D09ED9B128196C4B0052ABEA /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				D09ED999281178A00052ABEA /* SceneDelegate.swift */,
 				D09ED99B281178A00052ABEA /* ViewController.swift */,
 				BA6C9F5C2816FFA9004A75F2 /* HealthCheckViewController.swift */,
+				D09ED9B128196C4B0052ABEA /* ChartViewController.swift */,
 				D09ED9AD281574770052ABEA /* Entity.swift */,
 				D09ED9AF281575480052ABEA /* API.swift */,
 				D09ED99D281178A00052ABEA /* Main.storyboard */,
@@ -223,6 +226,7 @@
 				BA6C9F5D2816FFA9004A75F2 /* HealthCheckViewController.swift in Sources */,
 				D09ED9AC2811791B0052ABEA /* Colors.swift in Sources */,
 				D09ED998281178A00052ABEA /* AppDelegate.swift in Sources */,
+				D09ED9B228196C4B0052ABEA /* ChartViewController.swift in Sources */,
 				D09ED9B0281575480052ABEA /* API.swift in Sources */,
 				D09ED99A281178A00052ABEA /* SceneDelegate.swift in Sources */,
 			);

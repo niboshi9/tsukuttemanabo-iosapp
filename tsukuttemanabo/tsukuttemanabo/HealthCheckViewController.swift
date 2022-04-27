@@ -8,16 +8,20 @@
 
 import UIKit
 import FSCalendar
+import CalculateCalendarLogic
 
 class HealthCheckViewController: UIViewController {
     
     let colors = Colors()
+    var point = 0
+    var today = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         view.backgroundColor = .systemGroupedBackground
+        today = dateFormatter(day: Date())
         
         let scrollView = UIScrollView()
         scrollView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
@@ -29,6 +33,8 @@ class HealthCheckViewController: UIViewController {
         scrollView.addSubview(calendar)
         calendar.appearance.headerTitleColor = colors.bluePurple
         calendar.appearance.weekdayTextColor = colors.bluePurple
+        calendar.delegate = self
+        calendar.dataSource = self
         
         let checkLabel = UILabel()
         checkLabel.text = "健康チェック"
@@ -75,19 +81,53 @@ class HealthCheckViewController: UIViewController {
         resultButton.backgroundColor = colors.blue
         resultButton.addTarget(self, action: #selector(resultButtonAction), for: [.touchUpInside, .touchUpOutside])
         scrollView.addSubview(resultButton)
+        
+        if UserDefaults.standard.string(forKey: today) != nil {
+            resultButton.isEnabled = false
+            resultButton.setTitle("診断済み", for: .normal)
+            resultButton.backgroundColor = .white
+            resultButton.setTitleColor(.gray, for: .normal)
+        }
     }
     
     @objc func resultButtonAction() {
-        print("resultButtonTapped")
+        let alert = UIAlertController(title: "診断を完了しますか？", message: "診断は1日に1回までです", preferredStyle: .actionSheet)
+        let yesAction = UIAlertAction(title: "完了", style: .default, handler: { action in
+            var resultTitle = ""
+            var resultMessage = ""
+            if self.point >= 4 {
+                resultTitle = "高"
+                resultMessage = "感染している可能性が\n比較的高いです。\nPCR検査をしましょう。"
+            } else if self.point >= 2 {
+                resultTitle = "中"
+                resultMessage = "やや感染している可能性が\nあります。外出は控えましょう。"
+            } else {
+                resultTitle = "低"
+                resultMessage = "感染している可能性は\n今のところ低いです。\n今後も気をつけましょう。"
+            }
+            let alert = UIAlertController(title: resultTitle, message: resultMessage, preferredStyle: .alert)
+            self.present(alert, animated: true, completion: {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            })
+//            診断結果をローカルに保存
+            UserDefaults.standard.set(resultTitle, forKey: self.today)
+        })
+        let noAction = UIAlertAction(title: "キャンセル", style: .destructive, handler: nil)
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        present(alert, animated: true, completion: nil)
     }
     
 //    Selector型で呼び出す関数には @objc をつけないといけない
     @objc func switchAction(sender: UISwitch) {
         if sender.isOn {
-            print("on")
+            point += 1
         } else {
-            print("off")
+            point -= 1
         }
+        
     }
     
     func createUISwitch(parentView: UIView, action: Selector) {
@@ -127,6 +167,8 @@ class HealthCheckViewController: UIViewController {
     }
     
 
+    
+
     /*
     // MARK: - Navigation
 
@@ -138,3 +180,66 @@ class HealthCheckViewController: UIViewController {
     */
 
 }
+
+extension HealthCheckViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
+    
+    func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
+        if let result = UserDefaults.standard.string(forKey: dateFormatter(day: date)) {
+            return result
+        }
+        return ""
+    }
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, subtitleDefaultColorFor date: Date) -> UIColor? {
+        return .init(red: 0, green: 0, blue: 0, alpha: 0.7)
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
+        return .clear
+    }
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderDefaultColorFor date: Date) -> UIColor? {
+        if dateFormatter(day: date) == today {
+            return colors.bluePurple
+        }
+        return .clear
+    }
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderRadiusFor date: Date) -> CGFloat {
+        return 0.5
+    }
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
+        if judgeWeekday(date) == 1 {
+            return UIColor(red: 150/255, green: 30/255, blue: 0/255, alpha: 0.9)
+        } else if judgeWeekday(date) == 7 {
+            return UIColor(red: 0/255, green: 30/255, blue: 150/255, alpha: 0.9)
+        }
+        if judgeHoliday(date) {
+            return UIColor(red: 150/255, green: 30/255, blue: 0/255, alpha: 0.9)
+        }
+        return colors.black
+    }
+    
+//    ロジックのための自作関数
+    func dateFormatter(day: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: day)
+    }
+    
+//    曜日判定 日曜日1 土曜日7
+    func judgeWeekday(_ date: Date) -> Int {
+        let calendar = Calendar(identifier: .gregorian)
+        return calendar.component(.weekday, from: date)
+    }
+    
+//    祝日かどうか判定
+    func judgeHoliday(_ date: Date) -> Bool {
+        let calendar = Calendar(identifier: .gregorian)
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let holiday = CalculateCalendarLogic()
+        let judgeHoliday = holiday.judgeJapaneseHoliday(year: year, month: month, day: day)
+        return judgeHoliday
+    }
+}
+
+

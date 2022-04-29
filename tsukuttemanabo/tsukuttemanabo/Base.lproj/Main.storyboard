@@ -43,6 +43,22 @@
             </objects>
             <point key="canvasLocation" x="992" y="145"/>
         </scene>
+        <!--Circle Chart View Controller-->
+        <scene sceneID="9Tx-Ks-Oav">
+            <objects>
+                <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="mwG-HR-G2R" customClass="CircleChartViewController" customModule="tsukuttemanabo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1hr-2L-iWj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="dhh-Uf-CK2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6iF-eh-rfR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FAd-mV-P9V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1135" y="951"/>
+        </scene>
         <!--Chart View Controller-->
         <scene sceneID="vIu-Qz-C42">
             <objects>
@@ -54,6 +70,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="tK8-oZ-NF3"/>
+                    <connections>
+                        <segue destination="mwG-HR-G2R" kind="show" identifier="goCircle" id="bc2-U7-qww"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dhy-Ee-EIA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

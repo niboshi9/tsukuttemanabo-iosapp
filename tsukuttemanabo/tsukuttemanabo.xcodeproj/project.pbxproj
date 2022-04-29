@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6234B1C28517460503949B8A /* Pods_tsukuttemanabo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21E215F8C670DF0B98407C5 /* Pods_tsukuttemanabo.framework */; };
 		BA6C9F5D2816FFA9004A75F2 /* HealthCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6C9F5C2816FFA9004A75F2 /* HealthCheckViewController.swift */; };
+		BA6C9F5F28199FA5004A75F2 /* CircleChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6C9F5E28199FA5004A75F2 /* CircleChartViewController.swift */; };
+		BA6C9F61281BF085004A75F2 /* CovidSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6C9F60281BF085004A75F2 /* CovidSingleton.swift */; };
 		D09ED998281178A00052ABEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09ED997281178A00052ABEA /* AppDelegate.swift */; };
 		D09ED99A281178A00052ABEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09ED999281178A00052ABEA /* SceneDelegate.swift */; };
 		D09ED99C281178A00052ABEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09ED99B281178A00052ABEA /* ViewController.swift */; };
@@ -26,6 +28,8 @@
 		4DF07998234F59C1EBC1CA56 /* Pods-tsukuttemanabo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsukuttemanabo.release.xcconfig"; path = "Target Support Files/Pods-tsukuttemanabo/Pods-tsukuttemanabo.release.xcconfig"; sourceTree = "<group>"; };
 		B21E215F8C670DF0B98407C5 /* Pods_tsukuttemanabo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tsukuttemanabo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6C9F5C2816FFA9004A75F2 /* HealthCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCheckViewController.swift; sourceTree = "<group>"; };
+		BA6C9F5E28199FA5004A75F2 /* CircleChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleChartViewController.swift; sourceTree = "<group>"; };
+		BA6C9F60281BF085004A75F2 /* CovidSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidSingleton.swift; sourceTree = "<group>"; };
 		D09ED994281178A00052ABEA /* tsukuttemanabo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tsukuttemanabo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09ED997281178A00052ABEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D09ED999281178A00052ABEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,8 +100,10 @@
 				D09ED99B281178A00052ABEA /* ViewController.swift */,
 				BA6C9F5C2816FFA9004A75F2 /* HealthCheckViewController.swift */,
 				D09ED9B128196C4B0052ABEA /* ChartViewController.swift */,
+				BA6C9F5E28199FA5004A75F2 /* CircleChartViewController.swift */,
 				D09ED9AD281574770052ABEA /* Entity.swift */,
 				D09ED9AF281575480052ABEA /* API.swift */,
+				BA6C9F60281BF085004A75F2 /* CovidSingleton.swift */,
 				D09ED99D281178A00052ABEA /* Main.storyboard */,
 				D09ED9A0281178A80052ABEA /* Assets.xcassets */,
 				D09ED9A2281178A80052ABEA /* LaunchScreen.storyboard */,
@@ -223,12 +229,14 @@
 			files = (
 				D09ED99C281178A00052ABEA /* ViewController.swift in Sources */,
 				D09ED9AE281574770052ABEA /* Entity.swift in Sources */,
+				BA6C9F5F28199FA5004A75F2 /* CircleChartViewController.swift in Sources */,
 				BA6C9F5D2816FFA9004A75F2 /* HealthCheckViewController.swift in Sources */,
 				D09ED9AC2811791B0052ABEA /* Colors.swift in Sources */,
 				D09ED998281178A00052ABEA /* AppDelegate.swift in Sources */,
 				D09ED9B228196C4B0052ABEA /* ChartViewController.swift in Sources */,
 				D09ED9B0281575480052ABEA /* API.swift in Sources */,
 				D09ED99A281178A00052ABEA /* SceneDelegate.swift in Sources */,
+				BA6C9F61281BF085004A75F2 /* CovidSingleton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

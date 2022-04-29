@@ -8,5 +8,6 @@ target 'tsukuttemanabo' do
   # Pods for tsukuttemanabo
   pod 'FSCalendar'
   pod 'CalculateCalendarLogic'
+  pod 'Charts'
 
 end

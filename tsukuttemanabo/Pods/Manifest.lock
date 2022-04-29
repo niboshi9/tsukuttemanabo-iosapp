@@ -1,20 +1,30 @@
 PODS:
   - CalculateCalendarLogic (0.5.0)
+  - Charts (4.0.2):
+    - Charts/Core (= 4.0.2)
+  - Charts/Core (4.0.2):
+    - SwiftAlgorithms (~> 1.0)
   - FSCalendar (2.8.4)
+  - SwiftAlgorithms (1.0.0)
 
 DEPENDENCIES:
   - CalculateCalendarLogic
+  - Charts
   - FSCalendar
 
 SPEC REPOS:
   trunk:
     - CalculateCalendarLogic
+    - Charts
     - FSCalendar
+    - SwiftAlgorithms
 
 SPEC CHECKSUMS:
   CalculateCalendarLogic: d14189787cd47766e64281b2686608afea07ae4d
+  Charts: cfa4e911e6dc289582c2fe011a0e87c03d96727f
   FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
-PODFILE CHECKSUM: a44c6d822a3020f215a222016e8cce85690f3edd
+PODFILE CHECKSUM: 0d6720cff787dfc09645184bf6ca31bdac7605ce
 
 COCOAPODS: 1.11.3

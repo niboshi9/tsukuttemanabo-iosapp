@@ -21,7 +21,7 @@ struct CovidAPI {
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let data = data {
                 let result = try! JSONDecoder().decode([CovidInfo.Prefecture].self, from: data)
-                print(result)
+//                print(result)
                 completion(result)
             }
         }.resume()

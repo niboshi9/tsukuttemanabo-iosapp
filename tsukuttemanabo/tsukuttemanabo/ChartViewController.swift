@@ -19,8 +19,12 @@ class ChartViewController: UIViewController {
     var deaths = UILabel()
     var deathsCount = UILabel()
     
+    var segment = UISegmentedControl()
     var array: [CovidInfo.Prefecture] = []
     var chartView: HorizontalBarChartView!
+    var pattern = "cases"
+    
+    var searchBar = UISearchBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +52,7 @@ class ChartViewController: UIViewController {
         nextButton.addTarget(self, action: #selector(goCircle), for: .touchUpInside)
         view.addSubview(nextButton)
         
-        let segment = UISegmentedControl(items: ["感染者数", "PCR数", "死者数"])
+        segment = UISegmentedControl(items: ["感染者数", "PCR数", "死者数"])
         segment.frame = CGRect(x: 10, y: 70, width: view.frame.size.width - 20, height: 20)
         segment.selectedSegmentIndex = 0
         segment.selectedSegmentTintColor = colors.blue
@@ -57,7 +61,7 @@ class ChartViewController: UIViewController {
         segment.addTarget(self, action: #selector(switchAction), for: .valueChanged)
         view.addSubview(segment)
         
-        let searchBar = UISearchBar()
+        searchBar = UISearchBar()
         searchBar.frame = CGRect(x: 10, y: 100, width: view.frame.size.width - 20, height: 20)
         searchBar.delegate = self
         searchBar.placeholder = "都道府県を漢字で入力"
@@ -107,6 +111,16 @@ class ChartViewController: UIViewController {
         chartView.rightAxis.enabled = false
         
         array = CovidSignleton.shared.prefecture
+        array.sort(by: {
+            a, b -> Bool in
+            if pattern == "pcr" {
+                return a.pcr > b.pcr
+            } else if pattern == "deaths" {
+                return a.deaths > b.deaths
+            } else {
+                return a.cases > b.cases
+            }
+        })
         dataSet()
     }
     
@@ -119,7 +133,17 @@ class ChartViewController: UIViewController {
         
         var entries: [BarChartDataEntry] = []
         for i in 0...9 {
-            entries += [BarChartDataEntry(x: Double(i), y: Double(array[i].cases))]
+//            entries += [BarChartDataEntry(x: Double(i), y: Double(array[i].cases))]
+            if pattern == "cases" {
+                segment.selectedSegmentIndex = 0
+                entries += [BarChartDataEntry(x: Double(i), y: Double(self.array[i].cases))]
+            } else if pattern == "pcr" {
+                segment.selectedSegmentIndex = 1
+                entries += [BarChartDataEntry(x: Double(i), y: Double(self.array[i].pcr))]
+            } else if pattern == "deaths" {
+                segment.selectedSegmentIndex = 2
+                entries += [BarChartDataEntry(x: Double(i), y: Double(self.array[i].deaths))]
+            }
         }
         let set = BarChartDataSet(entries: entries, label: "県別状況")
         set.colors = [colors.blue]
@@ -132,14 +156,16 @@ class ChartViewController: UIViewController {
     @objc func switchAction(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            print("感染者数")
+            pattern = "cases"
         case 1:
-            print("PCR数")
+            pattern = "pcr"
         case 2:
-            print("死者数")
+            pattern = "deaths"
         default:
             break
         }
+        loadView()
+        viewDidLoad()
     }
     
     @objc func backButtonAction() {
@@ -147,7 +173,7 @@ class ChartViewController: UIViewController {
     }
     
     @objc func goCircle() {
-        print("tappedNextButton")
+        performSegue(withIdentifier: "goCircle", sender: nil)
     }
     
     func bottomLabel(_ parentView: UIView, _ label: UILabel, _ x: CGFloat, _ y: CGFloat, text: String, size: CGFloat, weight: UIFont.Weight, color: UIColor) {
@@ -177,15 +203,31 @@ class ChartViewController: UIViewController {
 // MARK: UISearchBarDelegate
 extension ChartViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+        if let index = array.firstIndex(where: { $0.name_ja == searchBar.text}) {
+            prefecture.text = "\(array[index].name_ja)"
+            pcrCount.text = "\(array[index].pcr)"
+            casesCount.text = "\(array[index].cases)"
+            deathsCount.text = "\(array[index].deaths)"
+        }
         print("検索ボタンがタップ")
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("キャンセルボタンがタップ")
+        view.endEditing(true)
+        searchBar.text = ""
     }
 }
 
 // MARK: ChartViewDelegate
 extension ChartViewController: ChartViewDelegate {
-    
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        if let dataSet = chartView.data?.dataSets[highlight.dataSetIndex] {
+            let index = dataSet.entryIndex(entry: entry)
+            prefecture.text = "\(array[index].name_ja)"
+            pcrCount.text = "\(array[index].pcr)"
+            casesCount.text = "\(array[index].cases)"
+            deathsCount.text = "\(array[index].deaths)"
+        }
+    }
 }
 

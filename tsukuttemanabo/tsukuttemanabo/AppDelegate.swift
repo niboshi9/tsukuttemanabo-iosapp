@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 //        FirebaseApp.configure()
+        FirebaseApp.configure()
+//        Firestore.firestore().collection("users").document("Message").setData([
+//            "UserMessage" : "message",
+//            "Date" : "messageDate",
+//            "UserId" : "messageId"
+//        ], merge: false) { err in
+//            if let err = err {
+//                print("Error writeing document: \(err)")
+//            } else {
+//                print("Document successflly written!")
+//            }
+//        }
         CovidAPI.getPrefecture(completion: {(result: [CovidInfo.Prefecture]) -> Void in
             CovidSignleton.shared.prefecture = result
         })

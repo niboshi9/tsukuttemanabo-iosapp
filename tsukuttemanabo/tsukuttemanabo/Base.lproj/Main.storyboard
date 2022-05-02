@@ -21,11 +21,28 @@
                     <connections>
                         <segue destination="WkI-dr-NBS" kind="show" identifier="goHealthCheck" id="kHG-uq-jpX"/>
                         <segue destination="qVK-GF-hbd" kind="show" identifier="goChart" id="Iy9-ZQ-2Dt"/>
+                        <segue destination="17y-pl-H3m" kind="show" identifier="goChat" id="B5J-zo-EgB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="219" y="145"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="eM7-wg-oaR">
+            <objects>
+                <viewController id="17y-pl-H3m" customClass="ChatViewController" customModule="tsukuttemanabo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rIo-UR-FJj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8wD-VZ-UAQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OKl-RD-TZy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CIY-jZ-XyL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="970" y="-503"/>
         </scene>
         <!--Health Check View Controller-->
         <scene sceneID="QNB-v5-4M1">

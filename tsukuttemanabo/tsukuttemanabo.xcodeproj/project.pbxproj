@@ -15,6 +15,7 @@
 		D08C0665281EF42600E1E626 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D08C0664281EF42600E1E626 /* FirebaseAuth */; };
 		D08C0667281EF42600E1E626 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D08C0666281EF42600E1E626 /* FirebaseFirestore */; };
 		D08C0669281EF42600E1E626 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = D08C0668281EF42600E1E626 /* FirebaseFirestoreSwift-Beta */; };
+		D08C066B281F5CEA00E1E626 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C066A281F5CEA00E1E626 /* ChatViewController.swift */; };
 		D09ED998281178A00052ABEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09ED997281178A00052ABEA /* AppDelegate.swift */; };
 		D09ED99A281178A00052ABEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09ED999281178A00052ABEA /* SceneDelegate.swift */; };
 		D09ED99C281178A00052ABEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09ED99B281178A00052ABEA /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 		BA6C9F5C2816FFA9004A75F2 /* HealthCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCheckViewController.swift; sourceTree = "<group>"; };
 		BA6C9F5E28199FA5004A75F2 /* CircleChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleChartViewController.swift; sourceTree = "<group>"; };
 		BA6C9F60281BF085004A75F2 /* CovidSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidSingleton.swift; sourceTree = "<group>"; };
+		D08C066A281F5CEA00E1E626 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		D09ED994281178A00052ABEA /* tsukuttemanabo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tsukuttemanabo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09ED997281178A00052ABEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D09ED999281178A00052ABEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,14 +110,15 @@
 				D0F2ADEA281D6E5500AFE958 /* GoogleService-Info.plist */,
 				D09ED997281178A00052ABEA /* AppDelegate.swift */,
 				D09ED999281178A00052ABEA /* SceneDelegate.swift */,
+				D09ED99D281178A00052ABEA /* Main.storyboard */,
 				D09ED99B281178A00052ABEA /* ViewController.swift */,
 				BA6C9F5C2816FFA9004A75F2 /* HealthCheckViewController.swift */,
 				D09ED9B128196C4B0052ABEA /* ChartViewController.swift */,
 				BA6C9F5E28199FA5004A75F2 /* CircleChartViewController.swift */,
+				D08C066A281F5CEA00E1E626 /* ChatViewController.swift */,
 				D09ED9AD281574770052ABEA /* Entity.swift */,
 				D09ED9AF281575480052ABEA /* API.swift */,
 				BA6C9F60281BF085004A75F2 /* CovidSingleton.swift */,
-				D09ED99D281178A00052ABEA /* Main.storyboard */,
 				D09ED9A0281178A80052ABEA /* Assets.xcassets */,
 				D09ED9A2281178A80052ABEA /* LaunchScreen.storyboard */,
 				D09ED9A5281178A80052ABEA /* Info.plist */,
@@ -250,6 +253,7 @@
 			files = (
 				D09ED99C281178A00052ABEA /* ViewController.swift in Sources */,
 				D09ED9AE281574770052ABEA /* Entity.swift in Sources */,
+				D08C066B281F5CEA00E1E626 /* ChatViewController.swift in Sources */,
 				BA6C9F5F28199FA5004A75F2 /* CircleChartViewController.swift in Sources */,
 				BA6C9F5D2816FFA9004A75F2 /* HealthCheckViewController.swift in Sources */,
 				D09ED9AC2811791B0052ABEA /* Colors.swift in Sources */,

@@ -10,9 +10,11 @@ import MessageKit
 import InputBarAccessoryView
 import FirebaseFirestore
 
-class ChatViewController: MessagesViewController, /*MessagesDataSource*,*/ MessageCellDelegate, MessagesLayoutDelegate, MessagesDisplayDelegate {
+class ChatViewController: MessagesViewController, MessagesDataSource, MessageCellDelegate, MessagesLayoutDelegate, MessagesDisplayDelegate {
     
     let colors = Colors()
+    
+    var firestoreData: [FirestoreData] = []
     
     private var userId = ""
 
@@ -38,16 +40,19 @@ class ChatViewController: MessagesViewController, /*MessagesDataSource*,*/ Messa
             } else {
                 if let document = document {
                     for i in 0..<document.count {
-                        print((document.documents[i].get("date")! as! Timestamp).dateValue())
-                        print(document.documents[i].get("senderId")! as! String)
-                        print(document.documents[i].get("text")! as! String)
-                        print(document.documents[i].get("userName")! as! String)
+                        var storeData = FirestoreData()
+                        storeData.date = (document.documents[i].get("date")! as! Timestamp).dateValue()
+                        storeData.senderId = document.documents[i].get("senderId")! as? String
+                        storeData.text = document.documents[i].get("test") as? String
+                        storeData.userName = document.documents[i].get("userName") as? String
+                        self.firestoreData.append(storeData)
+                        print(self.firestoreData)
                     }
                 }
             }
         })
         
-//        messageCollectionView.messageDataSource = self
+        messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messageCellDelegate = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
@@ -88,17 +93,17 @@ class ChatViewController: MessagesViewController, /*MessagesDataSource*,*/ Messa
         dismiss(animated: true, completion: nil)
     }
     
-//    func currentSender() -> SenderType {
-//        <#code#>
-//    }
-//
-//    func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
-//        <#code#>
-//    }
-//
-//    func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
-//        <#code#>
-//    }
+    func currentSender() -> SenderType {
+        <#code#>
+    }
+
+    func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
+        <#code#>
+    }
+
+    func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
+        <#code#>
+    }
     
     
     

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6234B1C28517460503949B8A /* Pods_tsukuttemanabo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21E215F8C670DF0B98407C5 /* Pods_tsukuttemanabo.framework */; };
+		BA10B96428223BB200AF2497 /* FirestoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA10B96328223BB200AF2497 /* FirestoreData.swift */; };
 		BA6C9F5D2816FFA9004A75F2 /* HealthCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6C9F5C2816FFA9004A75F2 /* HealthCheckViewController.swift */; };
 		BA6C9F5F28199FA5004A75F2 /* CircleChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6C9F5E28199FA5004A75F2 /* CircleChartViewController.swift */; };
 		BA6C9F61281BF085004A75F2 /* CovidSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6C9F60281BF085004A75F2 /* CovidSingleton.swift */; };
@@ -33,6 +34,7 @@
 		3589FB77420FE0CCB01C199D /* Pods-tsukuttemanabo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsukuttemanabo.debug.xcconfig"; path = "Target Support Files/Pods-tsukuttemanabo/Pods-tsukuttemanabo.debug.xcconfig"; sourceTree = "<group>"; };
 		4DF07998234F59C1EBC1CA56 /* Pods-tsukuttemanabo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsukuttemanabo.release.xcconfig"; path = "Target Support Files/Pods-tsukuttemanabo/Pods-tsukuttemanabo.release.xcconfig"; sourceTree = "<group>"; };
 		B21E215F8C670DF0B98407C5 /* Pods_tsukuttemanabo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tsukuttemanabo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA10B96328223BB200AF2497 /* FirestoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreData.swift; sourceTree = "<group>"; };
 		BA6C9F5C2816FFA9004A75F2 /* HealthCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCheckViewController.swift; sourceTree = "<group>"; };
 		BA6C9F5E28199FA5004A75F2 /* CircleChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleChartViewController.swift; sourceTree = "<group>"; };
 		BA6C9F60281BF085004A75F2 /* CovidSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidSingleton.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				D09ED99B281178A00052ABEA /* ViewController.swift */,
 				BA6C9F5C2816FFA9004A75F2 /* HealthCheckViewController.swift */,
 				D09ED9B128196C4B0052ABEA /* ChartViewController.swift */,
+				BA10B96328223BB200AF2497 /* FirestoreData.swift */,
 				BA6C9F5E28199FA5004A75F2 /* CircleChartViewController.swift */,
 				D08C066A281F5CEA00E1E626 /* ChatViewController.swift */,
 				D09ED9AD281574770052ABEA /* Entity.swift */,
@@ -258,6 +261,7 @@
 				BA6C9F5D2816FFA9004A75F2 /* HealthCheckViewController.swift in Sources */,
 				D09ED9AC2811791B0052ABEA /* Colors.swift in Sources */,
 				D09ED998281178A00052ABEA /* AppDelegate.swift in Sources */,
+				BA10B96428223BB200AF2497 /* FirestoreData.swift in Sources */,
 				D09ED9B228196C4B0052ABEA /* ChartViewController.swift in Sources */,
 				D09ED9B0281575480052ABEA /* API.swift in Sources */,
 				D09ED99A281178A00052ABEA /* SceneDelegate.swift in Sources */,
